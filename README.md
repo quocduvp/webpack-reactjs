@@ -6,5 +6,5 @@
 <p>steps 3:</p>
   <p>npm install or yarn install</p>
 <p>steps 4:</p>
-  <p>npm start </p>
+  <p>npm run dev </p>
 <p>=> build your project with: > npm run build</p>
