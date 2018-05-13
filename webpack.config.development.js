@@ -38,6 +38,23 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
+                test: /\.(jpg|png)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options:{
+                            name: '[name].[ext]',
+                            outputPath: '/img',
+                            publicPath: '/img'
+                        }
+                    }
+                ]
             }
         ]
     },
