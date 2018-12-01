@@ -1,5 +1,7 @@
+const path = require('path')
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -40,6 +42,12 @@ module.exports = {
                 ]
             },
             {
+                test: /\.scss$/,                    // made scss
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
+            },
+            {
                 test: /\.html$/,
                 use: ['html-loader']
             },
@@ -50,8 +58,8 @@ module.exports = {
                         loader: 'file-loader',
                         options:{
                             name: '[name].[ext]',
-                            outputPath: '/img',
-                            publicPath: '/img'
+                            outputPath: 'src/assets/images',
+                            publicPath: 'src/assets/images'
                         }
                     }
                 ]
@@ -62,7 +70,11 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: 'public/index.html'
-        })
+        }),
+        new ExtractTextPlugin({
+            filename: 'src/assets/styles/styles.[hash].css',
+            allChunks: true
+        }),
     ],
     devServer: {
         host: 'localhost',

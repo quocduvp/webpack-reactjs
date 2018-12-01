@@ -5,6 +5,7 @@ export default class App extends Component {
     return (
       <div>
         <p>Hello</p>
+        <img src={require('../assets/images/bg.jpg')}/>
       </div>
     )
   }

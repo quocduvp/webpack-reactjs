@@ -10,7 +10,7 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: 'static/[name].[hash].js',
+        filename: 'assets/static/[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
@@ -54,6 +54,12 @@ module.exports = {
                 })
             },
             {
+                test: /\.scss$/,                    // made scss
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
+            },
+            {
                 test: /\.html$/,
                 use: ['html-loader']
             },
@@ -64,8 +70,8 @@ module.exports = {
                         loader: 'file-loader',
                         options:{
                             name: '[name].[ext]',
-                            outputPath: '/img',
-                            publicPath: '/img'
+                            outputPath: 'assets/images',
+                            publicPath: 'assets/images'
                         }
                     }
                 ]
@@ -78,9 +84,9 @@ module.exports = {
             template: 'public/index.html'
         }),
         new ExtractTextPlugin({
-            filename: 'styles/styles.[hash].css',
+            filename: 'assets/styles/styles.[hash].css',
             allChunks: true
-        })
+        }),
     ],
     devServer: {
         host: 'localhost',
