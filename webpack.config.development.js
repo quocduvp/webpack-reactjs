@@ -9,6 +9,9 @@ module.exports = {
     // Webpack configuration goes here
     mode: 'development',
     entry: './src/index.js',
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
     output: {
         filename: 'bundle.[hash].js',
         publicPath: '/'
@@ -19,7 +22,7 @@ module.exports = {
 
             // First Rule
             {
-                test: /\.(js)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
@@ -56,7 +59,7 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        options:{
+                        options: {
                             name: '[name].[ext]',
                             outputPath: 'src/assets/images',
                             publicPath: 'src/assets/images'

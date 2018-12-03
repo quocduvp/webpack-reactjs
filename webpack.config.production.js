@@ -9,6 +9,9 @@ module.exports = {
     // Webpack configuration goes here
     mode: 'development',
     entry: './src/index.js',
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
     output: {
         filename: 'assets/static/[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
@@ -20,7 +23,7 @@ module.exports = {
 
             // First Rule
             {
-                test: /\.(js)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },

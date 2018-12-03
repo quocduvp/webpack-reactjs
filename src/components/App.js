@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import Routes from './Routes';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <p>Hello</p>
-        <img src={require('../assets/images/bg.jpg')}/>
-      </div>
+      <Routes/>
     )
   }
 }
