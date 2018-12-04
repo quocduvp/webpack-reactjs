@@ -10,12 +10,10 @@ export default class Contact extends Component {
     return (
       <div>
         This is contact
-        <Switch>
           <Link to={`${match.url}/submit`}>Submit</Link>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
-          ))}
-        </Switch>
+        {routes.map((route, i) => (
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
       </div>
     )
   }

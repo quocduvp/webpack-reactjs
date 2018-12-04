@@ -6,6 +6,7 @@ const routes = [
     {
       path: "/contact",
       component: Contact,
+      exact: false,
       routes: [
         {
           path: "/contact/submit",
@@ -13,7 +14,7 @@ const routes = [
           routes: [
             {
               path: "/contact/submit/done",
-              component: Done
+              component: Done,
             }
           ]
         }
