@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import RouteWithSubRoutes from '../../RouteWithSubRoutes';
-import { Link } from 'react-router-dom'
+import { Link, Switch } from 'react-router-dom'
 export default class Contact extends Component {
-  componentDidMount(){
+  componentDidMount() {
     console.log(this.props)
   }
-  render() { 
+  render() {
     const { routes, match } = this.props
     return (
       <div>
         This is contact
-        <Link to={`${match.url}/submit`}>Submit</Link>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route}/>
-        ))}
+        <Switch>
+          <Link to={`${match.url}/submit`}>Submit</Link>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
       </div>
     )
   }
