@@ -95,6 +95,7 @@ module.exports = {
         host: 'localhost',
         port: port,
         historyApiFallback: true,
+        contentBase: './',
         open: true,
         hot: true
     }
