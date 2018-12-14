@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import Routes from './Routes';
 
 export default class App extends Component {
+  componentDidMount(){
+    
+  }
   render() {
     return (
-      <Routes/>
+      <React.Fragment>
+        <Routes/>
+      </React.Fragment>
     )
   }
 }
